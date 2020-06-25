@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="us">
+    <head>
+        <meta charset="utf-8">
+        <title>Web Page with JQuery</title>
+
+        <!-- The root of the directory structure is your assets folder. -->
+        <script src="jquery.min.js"></script>
+    </head>
+    <body>
+        <!-- The contents of this h1 tag will be replaced by the native app. -->
+        <h1>INSERT_TITLE_HERE</h1>
+
+        <!-- images load from the assets directory, too. -->
+        <img src="hat.gif"/>
+
+        <!-- Click on these sentences to perform a function. -->
+        <p id="alert">Call an alert function.</p>
+        <p id="toast">Toast the user.</p>
+        <p id="go">Go to the second activity.</p>
+
+        <script>
+            // Call a javascript alert.
+            $("#alert").on("click", function() {
+                alert("This was called from the web page.");
+            });
+
+            // Create a toast notification in the native app.
+            $("#toast").on("click", function() {
+                app.makeToast("Cheers to you!", false);
+            });
+
+            // Go to the second page in the native app.
+            $("#go").on("click", function() {
+                app.goToSecondActivity();
+            });
+        </script>
+    </body>
+</html>
