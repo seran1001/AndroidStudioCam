@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="us">
+<head>
+    <script src="jquery.min.js"> </script>
+</head>
+<body>
+<!-- The contents of this h1 tag will be replaced by the native app. -->
+<h1>Fat Fund</h1>
+
+<!-- images load from the assets directory, too. -->
+<img src="FatFund3.png"/>
+
+<p id="alert">About</p>
+<p id="toast">Toast the user.</p>
+<p id="go">Install Fat Fund ($12)</p>
+
+<script>
+            // Call a javascript alert.
+            $("#alert").on("click", function() {
+                alert("This was called from the web page.");
+            });
+
+            // Create a toast notification in the native app.
+            $("#toast").on("click", function() {
+                app.makeToast("뺀 살만큼 투자받자", false);
+            });
+
+            // Go to the second page in the native app.
+            $("#go").on("click", function() {
+                app.goToSecondActivity();
+            });
+        </script>
+</body>
+</html>
