@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_width="375dp"
+        android:layout_height="131dp"
+        android:layout_above="@+id/goal"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="285dp"
+        android:background="#394188"
+        android:text="@string/hello_blank_fragment"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        tools:ignore="UnknownId" />
+
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="361dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="-3dp" />
+
+    <TextView
+        android:id="@+id/rewards"
+        android:layout_width="102dp"
+        android:layout_height="117dp"
+        android:layout_marginBottom="256dp"
+        android:text="rewards" />
+
+</RelativeLayout>
