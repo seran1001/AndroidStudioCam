@@ -1,0 +1,111 @@
+<!doctype html>
+
+
+<html lang="us">
+<head>
+    <meta charset="utf-8">
+    <title>Web Page with JQuery</title>
+
+    <!-- The root of the directory structure is your assets folder. -->
+    <!-- 아임포트 자바스크립트는 jQuery 기반으로 개발되었습니다 -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js" ></script>
+    <script src="https://developers.kakao.com/sdk/js.kakao.min.js"></script>
+    <script type="text/javascript">
+
+function reqkakao() {
+Kakao.init('f69020b262fd1bd32681daedfc7a621c');
+Kakao.Auth.authorize({
+redirectUri: 'http://localhost:3000/',
+});
+
+Kakao.Auth.login({
+success: function(authObj) {
+Kakao.API.request({
+url:'/v2/user/me",
+success: function(res) {
+console.log(res);
+
+var id= res.id;
+var email= res.kakao_account.email;
+var name = res.properties.nickname;
+var html='<BR>'+email+'<BR>'+name;
+
+$('body').append(html);
+
+}
+})
+console.log(authObj);
+var token = authObj.access_token;
+},
+fail:function(err) {
+alert(JSON.stringify(err));
+}
+});
+}
+
+
+var Iamport = require('iamport');
+var iamport = new Iamport({
+impKey: '자신의_API_키',
+impSecret: '자신의_APIscret_키'
+});
+
+app.get('/payments/status/all',(req,res)=>{
+iamport.payment.getByStatus({
+payment_status: 'paid'
+}).then(function(result){
+res.render('payments_list',{list:result.list});
+}).catch(function(error){
+console.log(error);
+red.send(error);
+})
+});
+
+
+
+        </script>
+    <script src="jquery.min.js"></script>
+    <script src="payment.js"></script>
+    <script type="text/javascript" src= "https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src= "https://service.iamport.kr/js/iamport.payment-1.1.2.js"></script>
+</head>
+<body>
+<!-- The contents of this h1 tag will be replaced by the native app. -->
+<h1>Payment WebPage</h1>
+
+
+<!-- images load from the assets directory, too. -->
+<img src="FatFund3.png"/>
+
+<!-- Click on these sentences to perform a function. -->
+<p id="alert">Call an alert function.</p>
+<p id="toast">Toast the user.</p>
+<p id="go">Go to the second activity.</p>
+<p id="gokakao">Go to kakao login.</p>
+
+
+<script>
+            // Call a javascript alert.
+            $("#alert").on("click", function() {
+                alert("This was called from the web page.");
+            });
+
+            // Create a toast notification in the native app.
+            $("#toast").on("click", function() {
+                app.makeToast("Cheers to you!", false);
+            });
+
+            // Go to the second page in the native app.
+            $("#go").on("click", req);
+
+              // Go to the Kakao login page in the native app.
+            $("#gokakao").on("click", reqkakao);
+
+
+
+
+
+        </script>
+</body>
+</html>
