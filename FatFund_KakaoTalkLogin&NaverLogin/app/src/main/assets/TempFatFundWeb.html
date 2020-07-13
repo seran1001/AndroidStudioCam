@@ -1,0 +1,80 @@
+<!doctype html>
+
+
+<html lang="us">
+<head>
+    <meta charset="utf-8">
+    <title>Web Page with JQuery</title>
+
+    <!-- The root of the directory structure is your assets folder. -->
+    <!-- 아임포트 자바스크립트는 jQuery 기반으로 개발되었습니다 -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+    <script src="https://developers.kakao.com/sdk/js.kakao.min.js"></script>
+    <script type="text/javascript">
+
+
+    </script>
+    <script src="jquery.min.js"></script>
+    <script src="payment.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript"
+            src="https://service.iamport.kr/js/iamport.payment-1.1.2.js"></script>
+</head>
+<body>
+<!-- The contents of this h1 tag will be replaced by the native app. -->
+<h1>Payment WebPage</h1>
+
+
+<!-- images load from the assets directory, too. -->
+<img src="FatFund3.png"/>
+
+<!-- Click on these sentences to perform a function. -->
+<p id="alert">Call an alert function.</p>
+<p id="toast">Toast the user.</p>
+<p id="go">Go pay 13$.</p>
+<p id="toast1">Toast the user.</p>
+<p id="gokakao">Go to kakao login.</p>
+<p id="myBtn">Go to kakao login.
+    <button type="button">갤러리 사진 올리기</button>
+</p>
+<p id="a">hello</p>
+
+<script>
+            // Call a javascript alert.
+            $("#alert").on("click", function() {
+                alert("This was called from the web page.");
+            });
+
+            // Create a toast notification in the native app.
+            $("#toast").on("click", function() {
+                app.makeToast("Cheers to you!", false);
+            });
+
+  // Create a toast notification in the native app.
+            $("#toast1").on("click", function() {
+                app.makeToast("Cheers to you!", false);
+            });
+            // Go to the second page in the native app.
+            $("#go").on("click", req);
+
+              // Go to the Kakao login page in the native app.
+            $("#gokakao").on("click", reqkakao);
+
+              // Call a javascript alert.
+            $("#btn").on("click", function() {
+                 app.makeToast("Cheers to you!", false);
+            });
+
+$("a").onclick = function() {
+    app.makeToast("Cheers to you!", false);
+};
+
+
+
+
+
+</script>
+</body>
+</html>
